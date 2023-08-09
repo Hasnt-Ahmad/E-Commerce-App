@@ -1,0 +1,21 @@
+.cart-design{
+    padding: 40px;
+    background-color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.btn-order{
+    margin-top: 50px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 8px;
+   border: none;
+   width: 400px;
+   height: 50px;
+   border-radius: 12px;
+   background-color: black;
+   color: white;
+   text-decoration: none;
+   text-align: center;
+}
