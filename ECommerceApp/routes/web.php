@@ -21,9 +21,13 @@ Route::get('/cart', "App\Http\Controllers\ProductController@displayCart");
 
 Route::get('/add-to-cart/{id}',"App\Http\Controllers\ProductController@addToCart");
 
+Route::get('/order',"App\Http\Controllers\ProductController@placeOrder");
+
 Route::get('/login-pass',"App\Http\Controllers\UserController@auth");
+
 
 Route::get('/logout',function(){
     session()->forget('userName');
+    session()->forget('user_id');
     return redirect('/');
 });

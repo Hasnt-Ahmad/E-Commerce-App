@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\OrderItem;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,6 +14,8 @@ class CategoryController extends Controller
     ->select('categories.*',"products.*")
     ->leftJoin('products', 'categories.id', '=', 'products.category_id')
     ->get();
+    $product_count=count(OrderItem::where("user_id",session("user_id"))->get());
+    session(["product_count"=>$product_count]);
     
     $categoriesWithProducts = [];
 
@@ -37,7 +40,7 @@ class CategoryController extends Controller
     }
     
     $finalResult = array_values($categoriesWithProducts);
-    return view("welcome",["data"=>$finalResult]);
+    return view("welcome",["data"=>$finalResult,"product_count"=>$product_count]);
 
     }
 }

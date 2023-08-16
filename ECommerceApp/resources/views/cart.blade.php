@@ -20,7 +20,7 @@
     </head>
     <body class="antialiased">
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav style="background-color: white !important;" class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
               <a class="navbar-brand" href="/">Shop</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,8 +29,12 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <i class="bi bi-cart-check-fill" id="myBtn1" onclick="modal()"></i><span>0</span>
-                    
+                        <i class="bi bi-cart-check-fill" id="myBtn1" onclick="modal()"></i>
+                        <span style="position:absolute;color:blue;font-weight:bold;font-size:20px;">
+                            @if(session("user_id"))
+                              {{session("product_count")}}
+                            @endif
+                          </span>
                     </li>
                     <li class="nav-item">
                         <div class="dropdown">
@@ -57,7 +61,7 @@
                     <div class="cart-design">
                 @foreach($order as $or)
                     @foreach($order_items as $item)
-                        <div class="row">
+                        <div class="row" style="border: 1px solid rgb(230, 230, 230);padding:20px;border-radius:20px">
                             <div class="col-2">
                                 <img src="/images/{{$item->picture}}" style="width: 100px;height:100px; border:2px solid rgb(239, 239, 239); border-radius:10px">
                             </div>
@@ -105,7 +109,7 @@
                         <div class="row">
                             <div class="col-12">
                                 @if (session("userName")!=null )
-                                    <a class="btn-order" href="/login">Place Order</a>
+                                    <a class="btn-order" href="/order">Place Order</a>
                                 
                                 @else
                                     <a class="btn-order" href="/login">Place Order</a>
@@ -116,7 +120,56 @@
                 </div>
             </div>
           </div>
-
+          <br><br>
+          <footer>
+            <div class="container">
+              <div class="row">
+                <div class="col-md-3">
+                  <h4>Customer Care</h4>
+                    <p style="width: 120px">
+                    Help Center
+                    How to Buy
+                    Corporate & Bulk Purchasing
+                    Returns & Refunds
+                    Daraz Shop
+                    Contact Us
+                    Purchase Protection
+                    Daraz Pick up Points
+                    </p>
+                </div>
+                <div class="col-md-3">
+                  <h4 style="padding-top: 30px;">Shop</h4>
+                    <p style="width: 120px">
+                      About Us
+                      Digital Payments
+                      Daraz Donates
+                      Daraz Blog
+                      Terms & Conditions
+                      Privacy Policy
+                      NTN Number : 4012118-6
+                      STRN Number : 1700401211818
+                      Online Shopping App
+                      Online Grocery Shopping
+                      Daraz Exclusive
+                    </p>
+                </div>
+                <div class="col-md-6">
+                  <h4 >Follow Us</h4>
+                    <div class="row">
+                      <div class="col-2">
+                        <i class="bi bi-facebook"></i>
+                      </div>
+                      <div class="col-2">
+                        <i class="bi bi-instagram"></i>
+                      </div>
+                      <div class="col-2">
+                        <i class="bi bi-twitter"></i>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </footer>
            
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
